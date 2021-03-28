@@ -1,0 +1,25 @@
+{
+  "name": "challenge-9",
+  "version": "1.0.0",
+  "description": "README for readmeGenerator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noahschnur/readme-generator.git"
+  },
+  "author": "Noah Schnur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/noahschnur/readme-generator/issues"
+  },
+  "homepage": "https://github.com/noahschnur/readme-generator#readme",
+  "keywords": [
+    "readme"
+  ],
+  "dependencies": {
+    "inquirer": "^8.0.0"
+  }
+}
