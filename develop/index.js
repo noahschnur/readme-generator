@@ -1,5 +1,5 @@
 // TODO: Include packages needed for this application
-// const CheckboxPrompt = require("inquirer/lib/prompts/checkbox");
+const CheckboxPrompt = require("inquirer/lib/prompts/checkbox");
 const generateMarkdown = require("./utils/generateMarkdown.js")
 // TODO: Create an array of questions for user input
 const questions = [
@@ -83,7 +83,7 @@ const questions = [
     {
         type: "input",
         name: "tests",
-        message: "Are there any tests that can be run on your code?"
+        message: "Does your application have any tests to be written?"
     },
     {
         type: "input",
@@ -101,7 +101,20 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) => {
+    return new Promise((resolve, reject) => {
+        fs.writeToFile("./utils/readme.md", fileName, err => {
+            if (err) {
+                reject(err);
+                return;
+            }
+            resolve({
+                ok: true,
+                message: "File created!"
+            });
+        });
+    }); 
+};
 
 // TODO: Create a function to initialize app
 function init() {}
