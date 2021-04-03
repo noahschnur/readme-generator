@@ -1,8 +1,14 @@
 // TODO: Include packages needed for this application
 const CheckboxPrompt = require("inquirer/lib/prompts/checkbox");
-const generateMarkdown = require("./utils/generateMarkdown.js")
+const generateMarkdown = require("./utils/generateMarkdown.js");
+const inquirer = require("inquirer");
+// const {writeToFile} = require("./utils/generateMarkdown.js");
+const fs = require("fs");
+const questionsAnswers = [];
+
 // TODO: Create an array of questions for user input
-const questions = [
+const questions = () => {
+    return inquirer.prompt([
     {
         type: "input",
         name: "title",
@@ -28,12 +34,6 @@ const questions = [
                 return false;
             }
         }
-    },
-    {
-        type: "list",
-        name: "contents",
-        message: "Table of Contents:",
-        choices: "Installation, Usage, License, Contributing, Tests, Questions",
     },
     {
         type: "input",
@@ -65,11 +65,11 @@ const questions = [
         type: "checkbox",
         name: "license",
         message: "What type of license does your project use?",
-        choices: "ISC, GNU GOLv3, Apache License 2.0, MIT"
+        choices: ["ISC", "GNU GOLv3", "Apache License 2.0", "MIT"],
     },
     {
         type: "input",
-        name: "Conributing",
+        name: "conributing",
         message: "How can others contribute to this project?",
         validate: contributeInput => {
             if (contributeInput) {
@@ -83,7 +83,15 @@ const questions = [
     {
         type: "input",
         name: "tests",
-        message: "Does your application have any tests to be written?"
+        message: "Does your application have any tests to be written?",
+        validate: testsInput => {
+            if (testsInput) {
+                return true;
+            } else {
+                console.log("Please enter what tests should be run");
+                return false;
+            }
+        }
     },
     {
         type: "input",
@@ -97,27 +105,79 @@ const questions = [
                 return false;
             }
         }
-    }
-];
+    },
+])
+.then(data => {
+    questionsAnswers.push(data);
+    })
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) => {
-    return new Promise((resolve, reject) => {
-        fs.writeToFile("./utils/readme.md", fileName, err => {
-            if (err) {
-                reject(err);
-                return;
-            }
-            resolve({
-                ok: true,
-                message: "File created!"
-            });
-        });
-    }); 
 };
 
-// TODO: Create a function to initialize app
-function init() {}
+questions()
+    .then(data => {
+        return generateMarkdown(data);
+    })
+    .catch(err => {
+        console.log(err);
+    });
 
-// Function call to initialize app
-init();
+// TODO: Create a function to write README file
+function writeToFile(fileName, data) {
+    data = questions.answers[data];
+    fileName = "${titleInput}";
+    if (!data) {
+        return '';
+    } else {
+    return `
+    # fileName
+    ## Desription
+    ${descriptionInput}
+    ## License
+    ${![GithubLicense](img.shields.io/badge/license-MIT-brightgreen)}  
+    ## Table of Contents
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [Contributing](#contributing)
+    - [Tests](#tests)
+    - [Questions](#questions)
+    ## Installation
+    ${installationInput}
+    ## Usage
+    ${usageInput}
+    ## Contributions
+    ${contributeInput}
+    ## Tests
+    ${testsInput}
+    ## Questions
+    ${questionsInput}
+    `;
+    }
+};
+
+// return new Promise((resolve, reject) => {
+//     fs.writeToFile("./utils/readme.md", fileName, err => {
+//         if (err) {
+//             reject(err);
+//             return;
+//         }
+//         resolve({
+//             ok: true,
+//             message: "File created!"
+//         });
+//     });
+// }); 
+
+// TODO: Create a function to initialize app
+function init(generateMarkdown) {
+    generateMarkdown = fs.writeToFile("./utils/readme.md", README, err => {
+        if (err) {
+            console.log(err);
+        } else {
+            return true;
+        }
+    });
+}
+
+
+// // Function call to initialize app
+// init();
