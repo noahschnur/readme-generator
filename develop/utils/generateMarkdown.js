@@ -39,7 +39,7 @@ ${data.description}
 
 ## License
 
-https://img.shields.io/badge/License-${data.license}-Green
+![Alt Text]https://img.shields.io/badge/License-${data.license}-Green
 
 ## Table of Contents
 - [Installation](#installation)
