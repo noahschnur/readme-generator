@@ -3,10 +3,11 @@
 
 ## Description
 
-Readme Generator
+Readme
 
 ## License
 
+https://img.shields.io/badge/License-ISC-Green
 
 ## Table of Contents
 - [Installation](#installation)
@@ -21,7 +22,7 @@ download
 
 ## Usage
 
-email me
+node
 
 ## Contributions
 

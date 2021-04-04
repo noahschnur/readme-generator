@@ -35,10 +35,10 @@ const questions = data => {
         }
     },
     {
-        type: "checkbox",
+        type: "list",
         name: "license",
         message: "What type of license does your project use?",
-        choices: ["ISC", "GNU GOLv3", "Apache License 2.0", "MIT"],
+        choices: ["ISC", "GNUv3", "Apache", "MIT"],
     },
     {
         type: "input",
@@ -130,8 +130,7 @@ function writeToFile(fileName, data) {
 
 
 // TODO: Create a function to initialize app
-function init() {
-}
+function init() {}
     
 // Function call to initialize app
 init();

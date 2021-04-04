@@ -7,6 +7,10 @@ function renderLicenseBadge(license) {
     return `![Badge](https://img.shields.io/badge/${badge})`;
   }
 }
+// https://img.shields.io/badge/License-Apache-Green
+// https://img.shields.io/badge/License-ISC-Green
+// https://img.shields.io/badge/License-GNUv3-Green
+// https://img.shields.io/badge/License-MIT-Green
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
@@ -14,7 +18,7 @@ function renderLicenseLink(license) {
   if (license !== "None") {
     return "";
   } else {
-    return `\n* [license](https://choosealicense.com/licenses/${license})`;
+    return `\n* [license](https://shields.io/category/${license})`;
   }
 }
 
@@ -39,6 +43,7 @@ ${data.description}
 
 ## License
 
+https://img.shields.io/badge/License-${data.license}-Green
 
 ## Table of Contents
 - [Installation](#installation)
