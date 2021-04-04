@@ -1,2 +1,1 @@
-
-# hi
+README GENERATOR
