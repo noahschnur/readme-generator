@@ -2,7 +2,7 @@
 const CheckboxPrompt = require("inquirer/lib/prompts/checkbox");
 const generateMarkdown = require("./utils/generateMarkdown.js");
 const inquirer = require("inquirer");
-const async = require("async");
+// const async = require("async");
 const fs = require("fs");
 
 // TODO: Create an array of questions for user input

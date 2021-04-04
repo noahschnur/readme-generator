@@ -33,7 +33,7 @@ const generateMarkdown = data => {
   return `
     # ${data.title}
 
-    ## Desription
+    ## Description
 
     ${data.description}
 
