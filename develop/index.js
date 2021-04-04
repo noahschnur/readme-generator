@@ -2,7 +2,7 @@
 const CheckboxPrompt = require("inquirer/lib/prompts/checkbox");
 const generateMarkdown = require("./utils/generateMarkdown.js");
 const inquirer = require("inquirer");
-// const {writeToFile} = require("./utils/generateMarkdown.js");
+const async = require("async");
 const fs = require("fs");
 
 // TODO: Create an array of questions for user input
@@ -110,27 +110,28 @@ const questions = data => {
 
 questions()
     .then(data => {
-        console.log(data);
+        // console.log(data);
+        writeToFile("./README.md", generateMarkdown(data))
     })
     .catch(err => {
         console.log(err);
     });
     
+    
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {    
-    writeToFile("./README.md", generateMarkdown(data),
+function writeToFile(fileName, data) { 
     fs.writeFile(fileName, data, err => {
-          if (err) {
-          console.log(err);
-          }
-          console.log("README created");
-    });
-}
+        if (err) {
+            console.log(err);
+        }
+        console.log("README created")
+    })
+};
+
 
 // TODO: Create a function to initialize app
 function init() {
-
 }
-
+    
 // Function call to initialize app
 init();

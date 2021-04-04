@@ -14,5 +14,8 @@
     "readme"
   ],
   "author": "noah schnur",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "async": "^3.2.0"
+  }
 }
