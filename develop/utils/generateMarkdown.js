@@ -39,7 +39,6 @@ const generateMarkdown = data => {
 
     ## License
 
-    ${![GithubLicense](img.shields.io/badge/license-MIT-brightgreen)} 
 
     ## Table of Contents
     - [Installation](#installation)
