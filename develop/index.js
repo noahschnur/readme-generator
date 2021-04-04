@@ -123,36 +123,13 @@ questions()
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    data = questions.answers[data];
-    fileName = "${titleInput}";
-    if (!data) {
-        return '';
-    } else {
-    return `
-    # fileName
-    ## Desription
-    ${descriptionInput}
-    ## License
-    ${![GithubLicense](img.shields.io/badge/license-MIT-brightgreen)}  
-    ## Table of Contents
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [Contributing](#contributing)
-    - [Tests](#tests)
-    - [Questions](#questions)
-    ## Installation
-    ${installationInput}
-    ## Usage
-    ${usageInput}
-    ## Contributions
-    ${contributeInput}
-    ## Tests
-    ${testsInput}
-    ## Questions
-    ${questionsInput}
-    `;
-    }
-};
+    fs.writeToFile(fileName, data, err => {
+          if (err) {
+          console.log(err);
+          }
+          console.log("README created");
+    });
+}
 
 // return new Promise((resolve, reject) => {
 //     fs.writeToFile("./utils/readme.md", fileName, err => {
@@ -178,6 +155,5 @@ function init(generateMarkdown) {
     });
 }
 
-
-// // Function call to initialize app
-// init();
+// Function call to initialize app
+init();
