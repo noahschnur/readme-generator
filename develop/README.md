@@ -1,9 +1,9 @@
 
-# Noah
+# Readme Generator
 
 ## Description
 
-Readme
+A node application that helps users write a professional looking readme.md for all their GitHub projects
 
 ## License
 
@@ -18,11 +18,11 @@ Readme
 
 ## Installation
 
-download
+Node
 
 ## Usage
 
-node
+Follow the steps after running node index.js
 
 ## Contributions
 
@@ -30,8 +30,8 @@ undefined
 
 ## Tests
 
-jest
+N/A
 
 ## Questions
 
-noahschnur
+noahschnur@gmail.com, https://github.com/noahschnur
